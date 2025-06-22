@@ -104,7 +104,6 @@ public class Main extends Application {
                         if (index[0] < allPreVideos.size()) {
                             Path video = allPreVideos.get(index[0]);
 
-                            // Reset UI przy starcie nowego video:
                             Platform.runLater(() -> {
                                 timeSlider.setValue(0);
                                 currentTimeLabel.setText("⏱ 00:00:00");
@@ -125,7 +124,6 @@ public class Main extends Application {
                                 }).start();
                             }
 
-                            // Po jakimś czasie (np. 1.2 s) aktualizujemy max slider i duration
                             Timeline updateDuration = new Timeline(new KeyFrame(Duration.seconds(1.2), ev -> {
                                 long totalMillis = screenPlayer.getMediaDuration();
                                 if (totalMillis > 0) {
@@ -149,7 +147,7 @@ public class Main extends Application {
                 playNext.run();
                 nowPlayingLabel.setText("🎞 Aktualnie: " + selected.getTitle());
 
-                // Czekamy na załadowanie media i pobieramy czas tylko jeśli większy od 0
+
                 Timeline delay = new Timeline(new KeyFrame(Duration.seconds(1), ev -> {
                     long totalMillis = screenPlayer.getMediaDuration();
                     if (totalMillis > 0) {
@@ -161,7 +159,6 @@ public class Main extends Application {
                 delay.setCycleCount(1);
                 delay.play();
 
-                // Aktualizacja czasu co 0.5 sekundy, uruchamiamy po opóźnieniu 1.5s, żeby mieć pewność, że media są załadowane
                 Timeline currentTimeUpdater = new Timeline(new KeyFrame(Duration.seconds(0.5), ev -> {
                     long currentMillis = screenPlayer.getCurrentTime();
                     timeSlider.setValue(currentMillis);
