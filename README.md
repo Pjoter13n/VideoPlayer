@@ -1,4 +1,5 @@
 # 🎬 Kino Player – Odtwarzacz Filmów dla Kin
+Projekt zaliczeniowy przedmiotu Programowanie Obiektowe, Piotr Nowak gr.6
 
 Aplikacja desktopowa do wyświetlania filmów, reklam i wstępów, stworzona z myślą o zastosowaniu w salach kinowych lub pokazach multimedialnych.  
 Zbudowana w **Java 17** z użyciem **JavaFX** i **VLCJ** (VLC Java bindings).
